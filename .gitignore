@@ -1,5 +1,9 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+# remove all css files from src folder
+# css files will regenerate from scss files 
+/src/**/*.css
+
 # dependencies
 /node_modules
 
