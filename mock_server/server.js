@@ -4,10 +4,11 @@ const bodyParser = require('body-parser');
 
 var app = express();
 
+/* use middleware to format the response body */
 app.use(bodyParser.json());
 
 
-
+/* define mock routes */
 app.get('/order_by_id/:id', (req, res) => {
     let id = req.params.id;
     let filepath = `./mock_files/order${id}.json`;
