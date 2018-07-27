@@ -1,0 +1,18 @@
+.customerItem {
+    padding: .5rem;
+    background-color: lightgray;
+
+    .customerName {
+        font-weight: bold;
+        font-size: 1.2rem;
+        
+        Button {
+            font-size: 1rem;
+            float: right; 
+        }
+    }
+
+    .customerInfo {
+        padding: .5rem;
+    }
+}

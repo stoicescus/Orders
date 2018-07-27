@@ -1,0 +1,13 @@
+$color: olive;
+
+.App {
+  color: $color;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  padding: 2rem;
+}
