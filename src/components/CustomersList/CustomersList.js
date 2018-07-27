@@ -11,6 +11,7 @@ const customersList = (props) => {
                         name={customer.name} 
                         since={customer.since} 
                         revenue={customer.revenue} 
+                        customerId={customer.id} 
                         key={customer.id} />
                 })
             }

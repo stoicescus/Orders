@@ -1,18 +1,13 @@
 import React from 'react';
 import './CustomerItem.css';
-import Button from '../../Button/Button';
+import { Link } from 'react-router-dom';
 
 const customerItem = (props) => {
-
-    let showOrder = () => {
-        console.log('order is shown ...');
-    }
-
     return (
         <li className="customerItem">
             <div className="customerName">
                 {props.name}
-                <Button label="Show Order" handleClick={showOrder.bind(this)} />
+                <Link to={"/edit/" + props.customerId} >Edit order</Link>
             </div>
             <div className="customerInfo">
                 <div>since: {props.since}</div>

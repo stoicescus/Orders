@@ -1,7 +1,9 @@
 const mockPort = 3001;
+const domain = `http://localhost:${mockPort}`
 
 const apiUrls = {
-    customersUrl: `http://localhost:${mockPort}/customers`
+    customersUrl: `${domain}/customers`,
+    ordersUrl: `${domain}/order`
 };
 
 const getData = (url) => {
