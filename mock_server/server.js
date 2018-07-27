@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 
 /* define mock routes */
-app.get('/order_by_id/:id', (req, res) => {
+app.get('/order/:id', (req, res) => {
     let id = req.params.id;
     let filepath = `./mock_files/order${id}.json`;
 
@@ -21,7 +21,7 @@ app.get('/order_by_id/:id', (req, res) => {
     })
 });
 
-app.get('/product_by_id/:id', (req, res) => {
+app.get('/product/:id', (req, res) => {
     let id = req.params.id;
     let filepath = `./mock_files/products.json`;
     let obj_by_id = null;
