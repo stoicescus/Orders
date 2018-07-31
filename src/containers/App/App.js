@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import Header from '../../components/Header/Header';
 import Customers from '../Customers/Customers';
-import EditOrder from '../../components/EditOrder/EditOrder';
+import Orders from '../Orders/Orders';
 
 class App extends Component {
   render() {
@@ -12,7 +12,7 @@ class App extends Component {
         <Header />
         <main>
           <Route exact={true} path="/" component={Customers} />
-          <Route path="/edit/:id" component={EditOrder} />
+          <Route path="/edit/:id" component={Orders} />
         </main>
       </div>
     );

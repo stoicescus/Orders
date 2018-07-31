@@ -3,7 +3,8 @@ const domain = `http://localhost:${mockPort}`
 
 const apiUrls = {
     customersUrl: `${domain}/customers`,
-    ordersUrl: `${domain}/order`
+    ordersUrl: `${domain}/order`,
+    productsUrl: `${domain}/products`
 };
 
 const getData = (url) => {

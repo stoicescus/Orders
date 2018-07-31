@@ -32,6 +32,7 @@ app.get('/order/:id', (req, res) => {
     });
 });
 
+/*
 app.get('/product/:id', (req, res) => {
     let id = req.params.id;
     let filepath = `./mock_files/products.json`;
@@ -47,6 +48,30 @@ app.get('/product/:id', (req, res) => {
         });
 
         res.send(obj_by_id);
+    });
+});
+*/
+
+app.get('/products/:ids', (req, res) => {
+    let ids = req.params.ids;
+    let ids_array = ids.split(',');
+    let filepath = `./mock_files/products.json`;
+    let products_by_id = [];
+    let product_by_id = {};
+
+    fs.readFile(filepath, 'utf8', (err, products) => {
+        if (err) {
+            throw err;
+        }
+
+        ids_array.forEach((id) => {
+            product_by_id = JSON.parse(products).filter((obj) => {
+                return obj.id === id;
+            });
+            products_by_id.push(product_by_id[0]);
+        });
+
+        res.send(products_by_id);
     });
 });
 

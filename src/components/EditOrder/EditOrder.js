@@ -1,29 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './EditOrder.css';
-import Api from '../../api';
+import Utils from '../../utils/utils';
 
-class editOrder extends Component {
-
-    state = {
-        orderData: []
-    };
-
-    componentDidMount() {
-        const orderUrl = Api.apiUrls.ordersUrl + '/' + this.props.match.params.id;
-
-        Api.getData(orderUrl).then((data) => {
-            this.setState({
-                orderData: data
-            });
-        });
-    }
-
-    render() {
-        console.log(JSON.stringify(this.state.orderData));
-        return (
-            <div>Edit Order ...</div>
-        );
-    }
-}
+const editOrder = (props) => {
+    return (
+        <div className="orderContainer">
+            {
+                props.orderInfo.items.map((item) =>{
+                    return (
+                        <div className="product" key={item['product-id']}>
+                            <div className="product-id">Product id: {item['product-id']}</div>
+                            <div className="product-description">Description: {Utils.getProductInfo(props.productsInfo, item['product-id'], 'description')}</div>
+                            <div className="product-price">Unit price: {item['unit-price']}</div>
+                            <div className="product-quantity">Quantity: {item.quantity}</div>
+                            <div className="product-total">Total: {item.total}</div>
+                            <br />
+                        </div>
+                    )
+                })
+            }
+        </div>
+    );
+};
 
 export default editOrder;
