@@ -14,7 +14,6 @@ const editOrder = (props) => {
                             <div className="product-price">Unit price: {item['unit-price']}</div>
                             <div className="product-quantity">Quantity: {item.quantity}</div>
                             <div className="product-total">Total: {item.total}</div>
-                            <br />
                         </div>
                     )
                 })

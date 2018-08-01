@@ -1,6 +1,11 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
 .Header {
-    color: green;
-    font-size: 30px;
-    border: 1px solid;
-    height: 100px;
+    @include center;
+
+    border-bottom: 1px solid;
+    height: $header-height;
+    color: $header-text-color;
+    background-color: $header-background-color;
 }

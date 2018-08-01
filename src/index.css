@@ -7,6 +7,6 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  
+html, body {
+  height: 100%;
 }

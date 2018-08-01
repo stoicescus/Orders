@@ -1,0 +1,6 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
+.product {
+    @include display-box;
+}

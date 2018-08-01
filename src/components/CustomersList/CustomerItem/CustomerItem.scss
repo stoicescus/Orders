@@ -1,6 +1,8 @@
+@import '../../../sass/variables.scss';
+@import '../../../sass/mixins.scss';
+
 .customerItem {
-    padding: .5rem;
-    background-color: lightgray;
+    @include display-box;
 
     .customerName {
         font-weight: bold;
@@ -10,7 +12,6 @@
             text-decoration: none;
             border: 1px solid;
             padding: .2rem;
-            color: #000;
             float: right;
             font-size: 1rem;
         }

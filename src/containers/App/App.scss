@@ -1,13 +1,13 @@
-$color: olive;
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
 
 .App {
-  color: $color;
-}
-
-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  padding: 2rem;
+    main {
+      @include center;
+      
+      width: auto;
+      padding: 2rem;
+      min-height: calc(100vh - #{$header-height});
+      background-color: $main-background-color;
+    }
 }

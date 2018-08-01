@@ -1,0 +1,14 @@
+@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin display-box {
+    border: 1px solid $display-box-border-color;
+    background-color: $display-box-background-color;
+    box-shadow: $display-box-box-shadow;
+    border-radius: $display-box-radius;
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+}
