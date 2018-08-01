@@ -12,3 +12,8 @@
     margin-bottom: 1rem;
     padding: 1.5rem;
 }
+
+@mixin set-margin-and-width-of-cols {
+    margin-left: $display-box-distance-between-cols;
+    width: $display-box-col-width;
+}

@@ -9,6 +9,34 @@ class Order extends Component {
         productsData: null
     };
 
+    quantityChangedHandler(id, quantity, unitPrice) {
+        //we create a new object to protect the state immutability
+        let order = {...this.state.orderData};
+        
+        order.items.forEach((product) => {
+            if (product['product-id'] === id) {
+                product.total = (quantity * unitPrice).toFixed(2);
+            }
+        });
+
+        //update the state with the new total value
+        this.setState({order});
+    }
+
+    deleteProductHandler(id) {
+        //we create a new object to protect the state immutability
+        let order = {...this.state.orderData};
+                
+        order.items.forEach((product, index) => {
+            if (product['product-id'] === id) {
+                order.items.splice(index, 1);
+            }
+        });
+
+        //update the state with the new total value
+        this.setState({order});
+    }
+
     componentDidMount() {
         const orderUrl = Api.apiUrls.ordersUrl + '/' + this.props.match.params.id;
         let productsUrl = '';
@@ -46,7 +74,7 @@ class Order extends Component {
         //console.log(JSON.stringify(this.state.productsData));
         if(this.state.orderData.length !== 0 && this.state.productsData !== null) {
             return (
-                <EditOrder orderInfo={this.state.orderData} productsInfo={this.state.productsData} />
+                <EditOrder orderInfo={this.state.orderData} productsInfo={this.state.productsData} changeQuantityAction={this.quantityChangedHandler.bind(this)} deleteProductAction={this.deleteProductHandler.bind(this)} />
             );
         }
 

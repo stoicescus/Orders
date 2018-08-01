@@ -3,4 +3,40 @@
 
 .product {
     @include display-box;
+
+    display: flex;
+
+    .product-photo {
+        border: 1px solid;
+        padding: .2rem;
+
+        .fa {
+            &.fa-product-hunt {
+                font-size: 5rem;
+            }
+        }
+    }
+
+    .product-info {
+        margin-left: 1rem;
+
+        .product-id {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: .5rem;
+        }
+
+        .product-description {
+            font-style: italic;
+            width: 5rem;
+        }
+    }
+
+    .remove-product {
+        cursor: pointer;
+    }
+
+    .product-price, .product-quantity, .product-total {
+        @include set-margin-and-width-of-cols;
+    }
 }
