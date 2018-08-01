@@ -5,6 +5,7 @@
     @include display-box;
 
     display: flex;
+    align-items: center;
 
     .product-photo {
         border: 1px solid;

@@ -18,14 +18,12 @@ const editOrder = (props) => {
                             </div>
                             <div className="product-price">Price: {item['unit-price']}</div>
                             <div className="product-quantity">
-                                Quantity: 
-                                <input 
-                                    type="text" 
-                                    maxLength="4" 
-                                    size="1" 
-                                    defaultValue={item.quantity} 
-                                    placeholder="Enter quantity ..." 
-                                    onChange={(e) => props.changeQuantityAction(item['product-id'], e.target.value, item['unit-price'])} />
+                                Quantity: <input    type="text" 
+                                                    maxLength="4" 
+                                                    size="1" 
+                                                    defaultValue={item.quantity} 
+                                                    placeholder="Enter quantity ..." 
+                                                    onChange={(e) => props.changeQuantityAction(item['product-id'], e.target.value, item['unit-price'])} />
                             </div>
                             <div className="product-total">Total: <b>{item.total}</b></div>
                             <div className="remove-product" onClick={() => props.deleteProductAction(item['product-id'])}>
