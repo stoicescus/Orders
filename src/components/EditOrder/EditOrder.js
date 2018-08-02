@@ -1,8 +1,54 @@
 import React from 'react';
 import './EditOrder.css';
 import Utils from '../../utils/utils';
+import { Link } from 'react-router-dom';
+import Button from '../Button/Button';
 
 const editOrder = (props) => {
+
+    const calculateTotal = () => {
+        let orderTotal = 0;
+
+        props.orderInfo.items.forEach((product) => {
+            orderTotal += parseFloat(product.total);
+        });
+
+        if (isNaN(orderTotal)) {
+            return 0;
+        }
+
+        return orderTotal.toFixed(2);
+    };
+
+    const placeOrder = () => {
+        console.log('Order was placed ...');
+    };
+
+    const isProductPresent = () => {
+        if(props.orderInfo.items.length !== 0){
+            return true;
+        }
+        return false;
+    }
+
+    const Total = (props) => {
+        let show = props.show;
+
+        if(show){
+            return <div>Total: <b>{calculateTotal()}</b></div>;
+        }
+        return null;
+    };
+
+    const PlaceOrder = (props) => {
+        let show = props.show;
+        
+        if(show){
+            return <Button label="Place Order" handleClickAction={placeOrder}></Button>;
+        }
+        return null;
+    };
+
     return (
         <div className="orderContainer">
             {
@@ -33,6 +79,14 @@ const editOrder = (props) => {
                     )
                 })
             }
+
+            <div className="total-order">
+                <Total show={isProductPresent()} />
+                <div className="btns-container">
+                    <Link to={"/"} >Back to customers</Link>
+                    <PlaceOrder show={isProductPresent()} />
+                </div>
+            </div>
         </div>
     );
 };

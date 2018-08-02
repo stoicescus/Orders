@@ -1,43 +1,65 @@
 @import '../../sass/variables.scss';
 @import '../../sass/mixins.scss';
 
-.product {
-    @include display-box;
 
-    display: flex;
-    align-items: center;
-
-    .product-photo {
-        border: 1px solid;
-        padding: .2rem;
-
-        .fa {
-            &.fa-product-hunt {
-                font-size: 5rem;
+.orderContainer {
+    .product {
+        @include display-box;
+    
+        display: flex;
+        align-items: center;
+    
+        .product-photo {
+            border: 1px solid;
+            padding: .2rem;
+    
+            .fa {
+                &.fa-product-hunt {
+                    font-size: 5rem;
+                    color: $button-background-color;
+                }
             }
         }
-    }
-
-    .product-info {
-        margin-left: 1rem;
-
-        .product-id {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: .5rem;
+    
+        .product-info {
+            margin-left: 1rem;
+    
+            .product-id {
+                font-weight: bold;
+                font-size: 1.2rem;
+                margin-bottom: .5rem;
+            }
+    
+            .product-description {
+                font-style: italic;
+                width: 5rem;
+            }
         }
-
-        .product-description {
-            font-style: italic;
-            width: 5rem;
+    
+        .remove-product {
+            cursor: pointer;
+        }
+    
+        .product-price, .product-quantity, .product-total {
+            @include set-margin-and-width-of-cols;
         }
     }
 
-    .remove-product {
-        cursor: pointer;
-    }
+    .total-order {
+        @include display-box;
+        min-width: 20rem;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
 
-    .product-price, .product-quantity, .product-total {
-        @include set-margin-and-width-of-cols;
+        .btns-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 1rem;
+        }
     }
 }

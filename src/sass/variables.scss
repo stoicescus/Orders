@@ -13,3 +13,12 @@ $display-box-title-color: #005596;
 $display-box-radius: .5rem;
 $display-box-distance-between-cols: 3rem;
 $display-box-col-width: 7rem;
+
+/* buttons styles */
+$button-border-radius: 3px;
+$button-padding: 4px 9px;
+$button-color: #0f6ab2;
+$button-text-color: #fff;
+$button-border: 1px solid $button-color;
+$button-background-color: $button-color;
+$button-background-color-hover: #f4f8ff;

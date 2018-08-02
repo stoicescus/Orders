@@ -1,0 +1,18 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
+.btn {
+    border-radius: $button-border-radius;
+    padding: $button-padding;
+    font-weight: bold;
+    border: $button-border;
+    background-color: $button-background-color;
+    color: $button-text-color;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $button-background-color-hover;
+        color: $button-color;
+    }
+}

@@ -74,7 +74,11 @@ class Order extends Component {
         //console.log(JSON.stringify(this.state.productsData));
         if(this.state.orderData.length !== 0 && this.state.productsData !== null) {
             return (
-                <EditOrder orderInfo={this.state.orderData} productsInfo={this.state.productsData} changeQuantityAction={this.quantityChangedHandler.bind(this)} deleteProductAction={this.deleteProductHandler.bind(this)} />
+                <EditOrder 
+                    orderInfo={this.state.orderData} 
+                    productsInfo={this.state.productsData} 
+                    changeQuantityAction={this.quantityChangedHandler.bind(this)} 
+                    deleteProductAction={this.deleteProductHandler.bind(this)} />
             );
         }
 

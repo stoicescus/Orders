@@ -32,26 +32,6 @@ app.get('/order/:id', (req, res) => {
     });
 });
 
-/*
-app.get('/product/:id', (req, res) => {
-    let id = req.params.id;
-    let filepath = `./mock_files/products.json`;
-    let obj_by_id = null;
-
-    fs.readFile(filepath, 'utf8', (err, data) => {
-        if (err) {
-            throw err;
-        }
-
-        obj_by_id = JSON.parse(data).filter((obj) => {
-            return obj.id === id;
-        });
-
-        res.send(obj_by_id);
-    });
-});
-*/
-
 app.get('/products/:ids', (req, res) => {
     let ids = req.params.ids;
     let ids_array = ids.split(',');
