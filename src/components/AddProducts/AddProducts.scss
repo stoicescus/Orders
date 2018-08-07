@@ -1,0 +1,48 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
+.add-products-modal-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 9999;
+    opacity: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    animation: show .5s ease;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    @keyframes NAME-YOUR-ANIMATION {
+        0%   { display: none; opacity: 0; }
+        1% { display: flex; opacity: 0; }
+        100% { opacity: 1 }
+    }
+
+    .add-products-modal {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        padding: 1rem;
+        background-color: #fff;
+        border-radius: 3px;
+
+        .close-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #fff;
+            color: olive;
+            font-size: 1.5rem;
+            padding: 0;
+            cursor: pointer;
+            outline: 0;
+            margin: 5px 10px 10px 0;
+        }
+    }
+    
+}

@@ -1,0 +1,43 @@
+@import '../../../sass/variables.scss';
+@import '../../../sass/mixins.scss';
+
+.product-row {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+
+    .add-product-photo {
+        border: 1px solid;
+        padding: .2rem;
+
+        .fa {
+            &.fa-product-hunt {
+                font-size: 3rem;
+                color: $button-background-color;
+            }
+        }
+    }
+
+    .add-product-info {
+        margin-left: 1rem;
+
+        .add-product-id {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: .5rem;
+        }
+
+        .add-product-description {
+            font-style: italic;
+            width: 10rem;
+        }
+    }
+
+    .add-product-price {
+        min-width: 6rem;
+    }
+
+    .btn {
+        max-height: 2rem;
+    }
+}

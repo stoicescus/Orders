@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import Api from '../../api';
 import EditOrder from '../../components/EditOrder/EditOrder';
+import Utils from '../../utils/utils';
 
 class Order extends Component {
 
     state = {
         orderData: [],
-        productsData: null
+        productsData: null,
+        allProducts: [],
+        showAddProductsModal: false
     };
 
     quantityChangedHandler(id, quantity, unitPrice) {
@@ -37,8 +40,34 @@ class Order extends Component {
         this.setState({order});
     }
 
+    toggleAddProductHandler() {
+        const { showAddProductsModal } = this.state;
+        this.setState({
+            showAddProductsModal: !showAddProductsModal
+        });
+    }
+
+    addProduct(product) {
+        let order = {...this.state.orderData};
+        const { items }  = order;
+
+        let newOrderProduct = {
+            'product-id': product.id,
+            'quantity': 1,
+            'unit-price': product.price,
+            'total': product.price
+        };
+
+        items.push(newOrderProduct);
+
+        this.setState({ order });
+
+        this.toggleAddProductHandler();
+    }
+
     componentDidMount() {
         const orderUrl = Api.apiUrls.ordersUrl + '/' + this.props.match.params.id;
+        const allProductsUrl = Api.apiUrls.allProductsUrl;
         let productsUrl = '';
         let productIds = '';
 
@@ -65,6 +94,11 @@ class Order extends Component {
                 this.setState({
                     productsData: products
                 });
+
+                Api.getData(allProductsUrl).then((allProducts) => {
+                    allProducts = Utils.filterCollection(this.state.orderData.items, allProducts, 'id');
+                    this.setState({allProducts})
+                });
             });
         });
     }
@@ -72,13 +106,19 @@ class Order extends Component {
     render() {
         //console.log(JSON.stringify(this.state.orderData));
         //console.log(JSON.stringify(this.state.productsData));
+        //console.log(JSON.stringify(this.state.allProducts));
+        
         if(this.state.orderData.length !== 0 && this.state.productsData !== null) {
             return (
                 <EditOrder 
                     orderInfo={this.state.orderData} 
                     productsInfo={this.state.productsData} 
+                    allProductsInfo={this.state.allProducts}
+                    showAddProductsModal={this.state.showAddProductsModal}
+                    toggleProductsModalAction={this.toggleAddProductHandler.bind(this)}
                     changeQuantityAction={this.quantityChangedHandler.bind(this)} 
-                    deleteProductAction={this.deleteProductHandler.bind(this)} />
+                    deleteProductAction={this.deleteProductHandler.bind(this)}
+                    addProductAction={this.addProduct.bind(this)} />
             );
         }
 

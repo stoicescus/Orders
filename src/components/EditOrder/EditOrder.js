@@ -3,6 +3,7 @@ import './EditOrder.css';
 import Utils from '../../utils/utils';
 import { Link } from 'react-router-dom';
 import Button from '../Button/Button';
+import AddProducts from '../AddProducts/AddProducts';
 
 const editOrder = (props) => {
 
@@ -82,11 +83,22 @@ const editOrder = (props) => {
 
             <div className="total-order">
                 <Total show={isProductPresent()} />
-                <div className="btns-container">
+                <div className="bottom-order-wrapper">
                     <Link to={"/"} >Back to customers</Link>
-                    <PlaceOrder show={isProductPresent()} />
+                    <div>
+                        <Button label="Add Products" handleClickAction={() => props.toggleProductsModalAction()} />
+                        <PlaceOrder show={isProductPresent()} />
+                    </div>
                 </div>
             </div>
+
+            {
+                props.showAddProductsModal ? <AddProducts 
+                                                allproductsData={props.allProductsInfo} 
+                                                toggleProductsModalAction={props.toggleProductsModalAction} 
+                                                addProductAction={props.addProductAction}
+                                                orderInfo={props.orderInfo} /> : null
+            }
         </div>
     );
 };

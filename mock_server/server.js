@@ -55,6 +55,17 @@ app.get('/products/:ids', (req, res) => {
     });
 });
 
+app.get('/allProducts', (req, res) => {
+    let filepath = `./mock_files/products.json`;
+
+    fs.readFile(filepath, 'utf8', (err, data) => {
+        if (err) {
+            throw err;
+        }
+        res.send(JSON.parse(data));
+    });
+});
+
 app.get('/customers', (req, res) => {
     let filepath = `./mock_files/customers.json`;
 
